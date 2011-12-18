@@ -12,6 +12,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.springsource.sts.grails.core.CLASSPATH_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
-	<classpathentry kind="lib" path="C:/java/groovy-1.8.4/embeddable/groovy-all-1.8.4.jar"/>
+	<classpathentry kind="lib" path="C:/java/grails-2.0.0/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.4.jar"/>
+	<classpathentry kind="lib" path="C:/java/grails-2.0.0/lib/org.springframework/spring-core/jars/spring-core-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/java/grails-2.0.0/lib/org.springframework/spring-orm/jars/spring-orm-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/java/grails-2.0.0/lib/org.springframework/spring-tx/jars/spring-tx-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="output" path="web-app/WEB-INF/classes"/>
 </classpath>
