@@ -8,10 +8,12 @@ class Employee {
     }
 	
 	int id
+	String loginname
+	String password
 	String firstname
 	String lastname
-	char employed
-	char admin
+	char employed = 'Y'
+	char admin = 'N'
 	
 	String toString() {
 		lastname + ", " + firstname

@@ -100,4 +100,24 @@ class EmployeeController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def login() {
+	}
+	
+	def authenticate() {
+		def employee = Employee.findByLoginnameAndPassword(params.login, params.password)
+		if(employee && employee.employed == 'Y'){
+			session.user = employee
+			flash.message = "Hello ${employee.firstname} ${employee.lastname}!"
+			redirect(controller:"employee", action:"list")
+		}else{
+			flash.message = "Sorry, ${params.login}. Please try again."
+			redirect(action:"login")
+		}	}
+	
+	def logout() {
+		flash.message = "Goodbye ${session.user.firstname} ${session.user.lastname}"
+		session.user = null
+		redirect(controller:"employee", action:"login")
+	}
 }
