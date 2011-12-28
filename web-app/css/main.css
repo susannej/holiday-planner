@@ -47,6 +47,11 @@ body {
 	background-color: #abbf78;
 }
 
+#loginHeader {
+	float: right;
+	color: #ffff;
+}
+
 /* replace with .no-boxshadow body if you have modernizr available */
 .ie6 body,
 .ie7 body,

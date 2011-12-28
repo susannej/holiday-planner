@@ -105,6 +105,7 @@ class EmployeeController {
 	}
 	
 	def authenticate() {
+		flash.message = "${params.login}, ${params.password}"
 		def employee = Employee.findByLoginnameAndPassword(params.login, params.password)
 		if(employee && employee.employed == 'Y'){
 			session.user = employee
