@@ -49,7 +49,8 @@ body {
 
 #loginHeader {
 	float: right;
-	color: #ffff;
+	color: #fff;
+	bottom: 10px;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
