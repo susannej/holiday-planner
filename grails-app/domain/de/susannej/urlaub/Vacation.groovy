@@ -11,7 +11,7 @@ class Vacation {
 	Date enddate
 	String description
 	Reason reason
-	char approved
+	Boolean approved
 	
 	String toString() {
 		startdate.toString() + " - " + enddate.toString() + " " + reason.toString() + ": " + description
