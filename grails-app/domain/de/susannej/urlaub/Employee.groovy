@@ -12,8 +12,9 @@ class Employee {
 	String password
 	String firstname
 	String lastname
-	char employed = 'Y'
-	char admin = 'N'
+	Boolean employed = true
+	Boolean admin = false
+	Boolean approve = false
 	
 	String toString() {
 		lastname + ", " + firstname
