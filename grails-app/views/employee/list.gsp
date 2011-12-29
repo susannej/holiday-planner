@@ -26,6 +26,8 @@
 					
 						<g:sortableColumn property="admin" title="${message(code: 'employee.admin.label', default: 'Admin')}" />
 					
+						<g:sortableColumn property="approve" title="${message(code: 'employee.approve.label', default: 'Approve')}" />
+					
 						<g:sortableColumn property="employed" title="${message(code: 'employee.employed.label', default: 'Employed')}" />
 					
 						<g:sortableColumn property="firstname" title="${message(code: 'employee.firstname.label', default: 'Firstname')}" />
@@ -33,8 +35,6 @@
 						<g:sortableColumn property="lastname" title="${message(code: 'employee.lastname.label', default: 'Lastname')}" />
 					
 						<g:sortableColumn property="loginname" title="${message(code: 'employee.loginname.label', default: 'Loginname')}" />
-					
-						<g:sortableColumn property="password" title="${message(code: 'employee.password.label', default: 'Password')}" />
 					
 					</tr>
 				</thead>
@@ -44,15 +44,15 @@
 					
 						<td><g:link action="show" id="${employeeInstance.id}">${fieldValue(bean: employeeInstance, field: "admin")}</g:link></td>
 					
-						<td>${fieldValue(bean: employeeInstance, field: "employed")}</td>
+						<td><g:formatBoolean boolean="${employeeInstance.approve}" /></td>
+					
+						<td><g:formatBoolean boolean="${employeeInstance.employed}" /></td>
 					
 						<td>${fieldValue(bean: employeeInstance, field: "firstname")}</td>
 					
 						<td>${fieldValue(bean: employeeInstance, field: "lastname")}</td>
 					
 						<td>${fieldValue(bean: employeeInstance, field: "loginname")}</td>
-					
-						<td>${fieldValue(bean: employeeInstance, field: "password")}</td>
 					
 					</tr>
 				</g:each>

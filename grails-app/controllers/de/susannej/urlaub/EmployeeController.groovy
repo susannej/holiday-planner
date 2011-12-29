@@ -105,8 +105,9 @@ class EmployeeController {
 	}
 	
 	def authenticate() {
+		log.info("in authenticate")
 		def employee = Employee.findByLoginnameAndPassword(params.login, params.password)
-		if (employee && employee.employed == 'Y'){
+		if (employee && employee.employed == true){
 			session.user = employee
 			flash.message = "Hello ${employee.firstname} ${employee.lastname}!"
 			redirect(controller:"employee", action:"list")

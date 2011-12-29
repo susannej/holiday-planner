@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="needs_vac_desc-label" class="property-label"><g:message code="reason.needs_vac_desc.label" default="Needsvacdesc" /></span>
 					
-						<span class="property-value" aria-labelledby="needs_vac_desc-label"><g:fieldValue bean="${reasonInstance}" field="needs_vac_desc"/></span>
+						<span class="property-value" aria-labelledby="needs_vac_desc-label"><g:formatBoolean boolean="${reasonInstance?.needs_vac_desc}" /></span>
 					
 				</li>
 				</g:if>

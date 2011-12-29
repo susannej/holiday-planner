@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="approved-label" class="property-label"><g:message code="vacation.approved.label" default="Approved" /></span>
 					
-						<span class="property-value" aria-labelledby="approved-label"><g:fieldValue bean="${vacationInstance}" field="approved"/></span>
+						<span class="property-value" aria-labelledby="approved-label"><g:formatBoolean boolean="${vacationInstance?.approved}" /></span>
 					
 				</li>
 				</g:if>

@@ -9,13 +9,13 @@ class BootStrap {
                              password:"admin", 
                              firstname:"Administrator", 
                              lastname:"admin",
-							 admin: 'Y')
+							 admin: true)
         admin.save()
 		
         def jdoe = new Employee(loginname:"jdoe", 
                             password:"jdoe", 
-                            firstname:"John Doe", 
-                            lastname:"author")
+                            firstname:"John", 
+                            lastname:"Doe")
         jdoe.save()
         
 	  }

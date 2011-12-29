@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'approved', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'approved', 'error')} ">
 	<label for="approved">
 		<g:message code="vacation.approved.label" default="Approved" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:field type="number" name="approved" required="" value="${fieldValue(bean: vacationInstance, field: 'approved')}"/>
+	<g:checkBox name="approved" value="${vacationInstance?.approved}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'description', 'error')} ">

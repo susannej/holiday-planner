@@ -36,7 +36,7 @@
 					
 						<td><g:link action="show" id="${reasonInstance.id}">${fieldValue(bean: reasonInstance, field: "description")}</g:link></td>
 					
-						<td>${fieldValue(bean: reasonInstance, field: "needs_vac_desc")}</td>
+						<td><g:formatBoolean boolean="${reasonInstance.needs_vac_desc}" /></td>
 					
 					</tr>
 				</g:each>

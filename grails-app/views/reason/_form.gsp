@@ -10,12 +10,12 @@
 	<g:textField name="description" value="${reasonInstance?.description}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: reasonInstance, field: 'needs_vac_desc', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: reasonInstance, field: 'needs_vac_desc', 'error')} ">
 	<label for="needs_vac_desc">
 		<g:message code="reason.needs_vac_desc.label" default="Needsvacdesc" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:field type="number" name="needs_vac_desc" required="" value="${fieldValue(bean: reasonInstance, field: 'needs_vac_desc')}"/>
+	<g:checkBox name="needs_vac_desc" value="${reasonInstance?.needs_vac_desc}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reasonInstance, field: 'vacations', 'error')} ">

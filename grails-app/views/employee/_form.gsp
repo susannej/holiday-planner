@@ -2,20 +2,28 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'admin', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'admin', 'error')} ">
 	<label for="admin">
 		<g:message code="employee.admin.label" default="Admin" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:field type="number" name="admin" required="" value="${fieldValue(bean: employeeInstance, field: 'admin')}"/>
+	<g:checkBox name="admin" value="${employeeInstance?.admin}" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'employed', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'approve', 'error')} ">
+	<label for="approve">
+		<g:message code="employee.approve.label" default="Approve" />
+		
+	</label>
+	<g:checkBox name="approve" value="${employeeInstance?.approve}" />
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'employed', 'error')} ">
 	<label for="employed">
 		<g:message code="employee.employed.label" default="Employed" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:field type="number" name="employed" required="" value="${fieldValue(bean: employeeInstance, field: 'employed')}"/>
+	<g:checkBox name="employed" value="${employeeInstance?.employed}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'firstname', 'error')} ">

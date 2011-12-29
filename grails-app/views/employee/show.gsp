@@ -27,7 +27,16 @@
 				<li class="fieldcontain">
 					<span id="admin-label" class="property-label"><g:message code="employee.admin.label" default="Admin" /></span>
 					
-						<span class="property-value" aria-labelledby="admin-label"><g:fieldValue bean="${employeeInstance}" field="admin"/></span>
+						<span class="property-value" aria-labelledby="admin-label"><g:formatBoolean boolean="${employeeInstance?.admin}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${employeeInstance?.approve}">
+				<li class="fieldcontain">
+					<span id="approve-label" class="property-label"><g:message code="employee.approve.label" default="Approve" /></span>
+					
+						<span class="property-value" aria-labelledby="approve-label"><g:formatBoolean boolean="${employeeInstance?.approve}" /></span>
 					
 				</li>
 				</g:if>
@@ -36,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="employed-label" class="property-label"><g:message code="employee.employed.label" default="Employed" /></span>
 					
-						<span class="property-value" aria-labelledby="employed-label"><g:fieldValue bean="${employeeInstance}" field="employed"/></span>
+						<span class="property-value" aria-labelledby="employed-label"><g:formatBoolean boolean="${employeeInstance?.employed}" /></span>
 					
 				</li>
 				</g:if>
