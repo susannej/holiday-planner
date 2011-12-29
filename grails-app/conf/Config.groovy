@@ -78,7 +78,14 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
-
+	appenders { 
+		console name: 'stdout' 
+	}
+	
+	root {
+		info 'stdout'
+	}
+	
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
            'org.codehaus.groovy.grails.web.sitemesh', //  layouts
@@ -90,4 +97,8 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+		   
+	info 'grails.app.controllers'
+	
+	
 }
