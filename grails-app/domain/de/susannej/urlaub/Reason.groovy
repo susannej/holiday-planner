@@ -9,7 +9,7 @@ class Reason {
 	
 	int id
 	String description
-	char needs_vac_desc
+	Boolean needs_vac_desc
 	
 	String toString() {
 		description
