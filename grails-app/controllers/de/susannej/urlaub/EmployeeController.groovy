@@ -7,7 +7,12 @@ class EmployeeController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        redirect(action: "list", params: params)
+        //redirect(action: "list", params: params)
+		if (session.user.approve) {
+			redirect(controller: "vacation", action: "openVacations")
+		} else {
+			redirect(controller: "vacation", action: "singleOneMonth")
+		}
     }
 
     def list() {
@@ -105,13 +110,15 @@ class EmployeeController {
 	}
 	
 	def authenticate() {
-		log.info("in authenticate")
+		log.trace("in authenticate")
 		def employee = Employee.findByLoginnameAndPassword(params.login, params.password)
 		if (employee && employee.employed == true){
+			log.info "User ${params.login} logged in"
 			session.user = employee
 			flash.message = "Hello ${employee.firstname} ${employee.lastname}!"
-			redirect(controller:"employee", action:"list")
+			redirect(controller:"employee", action:"index")
 		} else {
+			log.info "Login of ${params.login} rejected"
 			flash.message = "Sorry, ${params.login}. Please try again."
 			redirect(action:"login")
 		}	
@@ -119,6 +126,7 @@ class EmployeeController {
 	
 	def logout() {
 		flash.message = "Goodbye ${session.user.firstname} ${session.user.lastname}"
+		log.info "User ${session.user.loginname} logged out"
 		session.user = null
 		redirect(controller:"employee", action:"login")
 	}
