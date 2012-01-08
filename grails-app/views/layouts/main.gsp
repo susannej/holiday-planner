@@ -14,6 +14,12 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery-ui-1.8.16.custom.css')}" type="text/css">
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'menu.css')}" type="text/css">
+		<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-1.6.2.min.js')}"></script>
+		<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-ui-1.8.16.custom.min.js')}"></script>
+		<script type="text/javascript" src="${resource(dir: 'js', file: 'menu.js')}"></script>
+
 		<g:layoutHead/>
         <r:layoutResources />
 	</head>
@@ -24,8 +30,12 @@
 				<div id="loginHeader">Hello ${session.user.firstname} ${session.user.lastname} <g:link controller="employee" action="logout">[Logout]</g:link></div>
 			</g:if>
 		</div>
+		<g:if test="${session.user}">
+			<g:render template="../layouts/menubar"/>
+		</g:if>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
+		<div class="footer" role="contentinfo">        <a href="http://apycom.com/">jQuery Menu by Apycom</a>
+		</div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
         <r:layoutResources />

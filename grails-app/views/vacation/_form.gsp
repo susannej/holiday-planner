@@ -31,7 +31,8 @@
 		<g:message code="vacation.enddate.label" default="Enddate" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="enddate" precision="day"  value="${vacationInstance?.enddate}"  />
+	<!-- g:datePicker name="enddate" precision="day"  value="${vacationInstance?.enddate}"  / -->
+	<g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}" displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'reason', 'error')} required">
@@ -47,6 +48,7 @@
 		<g:message code="vacation.startdate.label" default="Startdate" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="startdate" precision="day"  value="${vacationInstance?.startdate}"  />
+	<g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}" displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
+	<!-- g:datePicker name="startdate" precision="day"  value="${vacationInstance?.startdate}"  / -->
 </div>
 
