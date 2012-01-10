@@ -10,12 +10,17 @@ class VacationController {
         redirect(action: "list", params: params)
     }
 
+    def singleList() {
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [vacationInstanceList: Vacation.findAllByEmployee(session.user), vacationInstanceTotal: Vacation.count()]
+    }
+
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [vacationInstanceList: Vacation.list(params), vacationInstanceTotal: Vacation.count()]
     }
 
-    def create() {
+	def create() {
         [vacationInstance: new Vacation(params)]
     }
 
