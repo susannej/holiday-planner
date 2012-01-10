@@ -5,9 +5,13 @@ class Employee {
 	static hasMany = [vacations:Vacation]
 
     static constraints = {
+		loginname()
+		toString()
+		employed()
+		admin()
+		approve()
     }
 	
-	int id
 	String loginname
 	String password
 	String firstname

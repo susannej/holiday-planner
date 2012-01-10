@@ -7,7 +7,6 @@ class Reason {
     static constraints = {
     }
 	
-	int id
 	String description
 	Boolean needs_vac_desc
 	

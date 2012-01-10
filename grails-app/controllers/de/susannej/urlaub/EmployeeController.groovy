@@ -115,6 +115,7 @@ class EmployeeController {
 		if (employee && employee.employed == true){
 			log.info "User ${params.login} logged in"
 			session.user = employee
+			log.info("user-id = " + session.user.id)
 			flash.message = "Hello ${employee.firstname} ${employee.lastname}!"
 			redirect(controller:"employee", action:"index")
 		} else {

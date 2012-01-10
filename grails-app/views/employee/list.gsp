@@ -24,17 +24,17 @@
 				<thead>
 					<tr>
 					
+						<g:sortableColumn property="loginname" title="${message(code: 'employee.loginname.label', default: 'Loginname')}" />
+					
+						<g:sortableColumn property="employed" title="${message(code: 'employee.employed.label', default: 'Employed')}" />
+					
 						<g:sortableColumn property="admin" title="${message(code: 'employee.admin.label', default: 'Admin')}" />
 					
 						<g:sortableColumn property="approve" title="${message(code: 'employee.approve.label', default: 'Approve')}" />
 					
-						<g:sortableColumn property="employed" title="${message(code: 'employee.employed.label', default: 'Employed')}" />
-					
 						<g:sortableColumn property="firstname" title="${message(code: 'employee.firstname.label', default: 'Firstname')}" />
 					
 						<g:sortableColumn property="lastname" title="${message(code: 'employee.lastname.label', default: 'Lastname')}" />
-					
-						<g:sortableColumn property="loginname" title="${message(code: 'employee.loginname.label', default: 'Loginname')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${employeeInstanceList}" status="i" var="employeeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${employeeInstance.id}">${fieldValue(bean: employeeInstance, field: "admin")}</g:link></td>
-					
-						<td><g:formatBoolean boolean="${employeeInstance.approve}" /></td>
+						<td><g:link action="show" id="${employeeInstance.id}">${fieldValue(bean: employeeInstance, field: "loginname")}</g:link></td>
 					
 						<td><g:formatBoolean boolean="${employeeInstance.employed}" /></td>
+					
+						<td><g:formatBoolean boolean="${employeeInstance.admin}" /></td>
+					
+						<td><g:formatBoolean boolean="${employeeInstance.approve}" /></td>
 					
 						<td>${fieldValue(bean: employeeInstance, field: "firstname")}</td>
 					
 						<td>${fieldValue(bean: employeeInstance, field: "lastname")}</td>
-					
-						<td>${fieldValue(bean: employeeInstance, field: "loginname")}</td>
 					
 					</tr>
 				</g:each>

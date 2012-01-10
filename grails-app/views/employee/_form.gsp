@@ -2,6 +2,22 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'loginname', 'error')} ">
+	<label for="loginname">
+		<g:message code="employee.loginname.label" default="Loginname" />
+		
+	</label>
+	<g:textField name="loginname" value="${employeeInstance?.loginname}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'employed', 'error')} ">
+	<label for="employed">
+		<g:message code="employee.employed.label" default="Employed" />
+		
+	</label>
+	<g:checkBox name="employed" value="${employeeInstance?.employed}" />
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'admin', 'error')} ">
 	<label for="admin">
 		<g:message code="employee.admin.label" default="Admin" />
@@ -18,14 +34,6 @@
 	<g:checkBox name="approve" value="${employeeInstance?.approve}" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'employed', 'error')} ">
-	<label for="employed">
-		<g:message code="employee.employed.label" default="Employed" />
-		
-	</label>
-	<g:checkBox name="employed" value="${employeeInstance?.employed}" />
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'firstname', 'error')} ">
 	<label for="firstname">
 		<g:message code="employee.firstname.label" default="Firstname" />
@@ -40,14 +48,6 @@
 		
 	</label>
 	<g:textField name="lastname" value="${employeeInstance?.lastname}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'loginname', 'error')} ">
-	<label for="loginname">
-		<g:message code="employee.loginname.label" default="Loginname" />
-		
-	</label>
-	<g:textField name="loginname" value="${employeeInstance?.loginname}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'password', 'error')} ">

@@ -23,38 +23,11 @@
 			</g:if>
 			<ol class="property-list vacation">
 			
-				<g:if test="${vacationInstance?.approved}">
-				<li class="fieldcontain">
-					<span id="approved-label" class="property-label"><g:message code="vacation.approved.label" default="Approved" /></span>
-					
-						<span class="property-value" aria-labelledby="approved-label"><g:formatBoolean boolean="${vacationInstance?.approved}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${vacationInstance?.description}">
-				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="vacation.description.label" default="Description" /></span>
-					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${vacationInstance}" field="description"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${vacationInstance?.employee}">
 				<li class="fieldcontain">
 					<span id="employee-label" class="property-label"><g:message code="vacation.employee.label" default="Employee" /></span>
 					
 						<span class="property-value" aria-labelledby="employee-label"><g:link controller="employee" action="show" id="${vacationInstance?.employee?.id}">${vacationInstance?.employee?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${vacationInstance?.enddate}">
-				<li class="fieldcontain">
-					<span id="enddate-label" class="property-label"><g:message code="vacation.enddate.label" default="Enddate" /></span>
-					
-						<span class="property-value" aria-labelledby="enddate-label"><g:formatDate date="${vacationInstance?.enddate}" /></span>
 					
 				</li>
 				</g:if>
@@ -73,6 +46,33 @@
 					<span id="startdate-label" class="property-label"><g:message code="vacation.startdate.label" default="Startdate" /></span>
 					
 						<span class="property-value" aria-labelledby="startdate-label"><g:formatDate date="${vacationInstance?.startdate}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${vacationInstance?.enddate}">
+				<li class="fieldcontain">
+					<span id="enddate-label" class="property-label"><g:message code="vacation.enddate.label" default="Enddate" /></span>
+					
+						<span class="property-value" aria-labelledby="enddate-label"><g:formatDate date="${vacationInstance?.enddate}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${vacationInstance?.description}">
+				<li class="fieldcontain">
+					<span id="description-label" class="property-label"><g:message code="vacation.description.label" default="Description" /></span>
+					
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${vacationInstance}" field="description"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${vacationInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="vacation.status.label" default="Status" /></span>
+					
+						<span class="property-value" aria-labelledby="status-label"><g:link controller="status" action="show" id="${vacationInstance?.status?.id}">${vacationInstance?.status?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

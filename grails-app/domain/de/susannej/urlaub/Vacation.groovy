@@ -3,15 +3,20 @@ package de.susannej.urlaub
 class Vacation {
 
     static constraints = {
+		employee()
+		reason()
+		startdate()
+		enddate()
+		description()
+		status()
     }
 	
-	int id
 	Employee employee
 	Date startdate
 	Date enddate
 	String description
 	Reason reason
-	Boolean approved
+	Status status
 	
 	String toString() {
 		startdate.toString() + " - " + enddate.toString() + " " + reason.toString() + ": " + description

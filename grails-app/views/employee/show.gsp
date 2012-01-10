@@ -23,6 +23,24 @@
 			</g:if>
 			<ol class="property-list employee">
 			
+				<g:if test="${employeeInstance?.loginname}">
+				<li class="fieldcontain">
+					<span id="loginname-label" class="property-label"><g:message code="employee.loginname.label" default="Loginname" /></span>
+					
+						<span class="property-value" aria-labelledby="loginname-label"><g:fieldValue bean="${employeeInstance}" field="loginname"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${employeeInstance?.employed}">
+				<li class="fieldcontain">
+					<span id="employed-label" class="property-label"><g:message code="employee.employed.label" default="Employed" /></span>
+					
+						<span class="property-value" aria-labelledby="employed-label"><g:formatBoolean boolean="${employeeInstance?.employed}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${employeeInstance?.admin}">
 				<li class="fieldcontain">
 					<span id="admin-label" class="property-label"><g:message code="employee.admin.label" default="Admin" /></span>
@@ -41,15 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${employeeInstance?.employed}">
-				<li class="fieldcontain">
-					<span id="employed-label" class="property-label"><g:message code="employee.employed.label" default="Employed" /></span>
-					
-						<span class="property-value" aria-labelledby="employed-label"><g:formatBoolean boolean="${employeeInstance?.employed}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${employeeInstance?.firstname}">
 				<li class="fieldcontain">
 					<span id="firstname-label" class="property-label"><g:message code="employee.firstname.label" default="Firstname" /></span>
@@ -64,15 +73,6 @@
 					<span id="lastname-label" class="property-label"><g:message code="employee.lastname.label" default="Lastname" /></span>
 					
 						<span class="property-value" aria-labelledby="lastname-label"><g:fieldValue bean="${employeeInstance}" field="lastname"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${employeeInstance?.loginname}">
-				<li class="fieldcontain">
-					<span id="loginname-label" class="property-label"><g:message code="employee.loginname.label" default="Loginname" /></span>
-					
-						<span class="property-value" aria-labelledby="loginname-label"><g:fieldValue bean="${employeeInstance}" field="loginname"/></span>
 					
 				</li>
 				</g:if>
