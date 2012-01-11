@@ -12,7 +12,7 @@ class jqueryDatePickerTagLib {
 		def datepickerFormat = attrs.datepickerFormat
 		
 		def displayFormatString = displayFormat ? displayFormat : "MM/dd/yyyy"
-		def datepickerFormatString = datepickerFormat ? datepickerFormat : "dd/mm/yy"		
+		def datepickerFormatString = datepickerFormat ? datepickerFormat : "mm/dd/yy"		
 		//def dateString = value ? value.format('MM/dd/yyyy') : ""
 		def dateString = value ? value.format(displayFormatString) : ""
 		def dayString = value ? value.format('dd') : ""
