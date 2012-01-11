@@ -18,9 +18,17 @@
 	<g:select id="reason" name="reason.id" from="${de.susannej.urlaub.Reason.list()}" optionKey="id" required="" value="${vacationInstance?.reason?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'description', 'error')} ">
+	<label for="description">
+		<g:message code="vacation.description.label" default="Description" />
+		
+	</label>
+	<g:textField name="description" value="${vacationInstance?.description}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'startdate', 'error')} required">
 	<label for="startdate">
-		<g:message code="vacation.startdate.label" default="Startdate" />
+		<g:message code="vacation.startdate.label" default="Startdate (DD/MM/YYYY)" />
 		<span class="required-indicator">*</span>
 	</label>
 	<!-- g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" / -->
@@ -29,19 +37,11 @@
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'enddate', 'error')} required">
 	<label for="enddate">
-		<g:message code="vacation.enddate.label" default="Enddate" />
+		<g:message code="vacation.enddate.label" default="Enddate (DD/MM/YYYY)" />
 		<span class="required-indicator">*</span>
 	</label>
 	<!-- g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" / -->
 	<g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'description', 'error')} ">
-	<label for="description">
-		<g:message code="vacation.description.label" default="Description" />
-		
-	</label>
-	<g:textField name="description" value="${vacationInstance?.description}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'status', 'error')} required">

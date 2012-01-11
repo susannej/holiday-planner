@@ -2,7 +2,7 @@
 	<ul class="menu">
 		<li><a href="/urlaubsplaner/employee/index" class="parent"><span>Home</span></a></li>
 		
-		<li><a href=""><span>Meine Urlaube</span></a>
+		<li><a><span>Meine Urlaube</span></a>
 			<div><ul>
 				<li><a href="/urlaubsplaner/vacation/singleList"><span>als Liste</span></a></li>
 				<li><a href="#"><span>Monats&uuml;bersicht</span></a></li>
@@ -11,7 +11,7 @@
 			</ul></div>
 		</li>
 		
-		<li><a href=""><span>Alle Mitarbeiter</span></a>
+		<li><a><span>Alle Mitarbeiter</span></a>
 			<div><ul>
 				<li><a href="/urlaubsplaner/vacation/list"><span>als Liste</span></a></li>
 				<li><a href="#"><span>Monats&uuml;bersicht</span></a></li>
@@ -21,7 +21,7 @@
 		</li>
 		
 		<g:if test="${session.user.admin}">
-			<li><a href=""><span>Administration</span></a>
+			<li><a><span>Administration</span></a>
 				<div><ul>
 					<li><a href="/urlaubsplaner/employee/list"><span>Mitarbeiter</span></a></li>
 					<li><a href="/urlaubsplaner/reason/list"><span>Urlaubsgr&uuml;nde</span></a></li>

@@ -36,7 +36,8 @@
 					
 						<td><g:link action="show" id="${reasonInstance.id}">${fieldValue(bean: reasonInstance, field: "description")}</g:link></td>
 					
-						<td><g:formatBoolean boolean="${reasonInstance.needs_vac_desc}" /></td>
+						<!-- td><g:formatBoolean boolean="${reasonInstance.needs_vac_desc}" /></td -->
+						<td><g:checkBox name="needsVacDesc" value="${reasonInstance.needs_vac_desc}" disabled="true" /></td>
 					
 					</tr>
 				</g:each>

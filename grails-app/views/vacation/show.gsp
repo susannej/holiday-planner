@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="startdate-label" class="property-label"><g:message code="vacation.startdate.label" default="Startdate" /></span>
 					
-						<span class="property-value" aria-labelledby="startdate-label"><g:formatDate date="${vacationInstance?.startdate}" /></span>
+						<span class="property-value" aria-labelledby="startdate-label"><g:formatDate date="${vacationInstance?.startdate}" format="dd.MM.yyyy" /></span>
 					
 				</li>
 				</g:if>
@@ -54,7 +54,7 @@
 				<li class="fieldcontain">
 					<span id="enddate-label" class="property-label"><g:message code="vacation.enddate.label" default="Enddate" /></span>
 					
-						<span class="property-value" aria-labelledby="enddate-label"><g:formatDate date="${vacationInstance?.enddate}" /></span>
+						<span class="property-value" aria-labelledby="enddate-label"><g:formatDate date="${vacationInstance?.enddate}" format="dd.MM.yyyy" /></span>
 					
 				</li>
 				</g:if>

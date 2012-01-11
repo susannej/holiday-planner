@@ -42,7 +42,8 @@
 					
 						<td>${fieldValue(bean: statusInstance, field: "description")}</td>
 					
-						<td><g:formatBoolean boolean="${statusInstance.onlyApprover}" /></td>
+						<!-- td><g:formatBoolean boolean="${statusInstance.onlyApprover}" /></td -->
+						<td><g:checkBox name="myCheckbox" value="${statusInstance.onlyApprover}" disabled="true" /></td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "displayColor")}</td>
 					
