@@ -11,7 +11,6 @@
 		<a href="#list-vacation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -46,7 +45,7 @@
 						<!-- FIXME -->
 						<!-- td><g:link action="show" id="${vacationInstance.id}">${fieldValue(bean: vacationInstance, field: "employee")}</g:link></td -->
 					
-						<td><g:link action="show" id="${vacationInstance.id}">${fieldValue(bean: vacationInstance, field: "reason")}</g:link></td>
+						<td><g:link action="edit" id="${vacationInstance.id}">${fieldValue(bean: vacationInstance, field: "reason")}</g:link></td>
 					
 						<td>${fieldValue(bean: vacationInstance, field: "description")}</td>
 					

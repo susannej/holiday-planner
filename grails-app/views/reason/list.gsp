@@ -11,7 +11,6 @@
 		<a href="#list-reason" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -26,7 +25,7 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'reason.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="needs_vac_desc" title="${message(code: 'reason.needs_vac_desc.label', default: 'Needsvacdesc')}" />
+						<g:sortableColumn property="needsVacDesc" title="${message(code: 'reason.needsVacDesc.label', default: 'Needsvacdesc')}" />
 					
 					</tr>
 				</thead>
@@ -34,10 +33,11 @@
 				<g:each in="${reasonInstanceList}" status="i" var="reasonInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${reasonInstance.id}">${fieldValue(bean: reasonInstance, field: "description")}</g:link></td>
+						<td><g:link action="edit" id="${reasonInstance.id}">${fieldValue(bean: reasonInstance, field: "description")}</g:link></td>
 					
-						<!-- td><g:formatBoolean boolean="${reasonInstance.needs_vac_desc}" /></td -->
-						<td><g:checkBox name="needsVacDesc" value="${reasonInstance.needs_vac_desc}" disabled="true" /></td>
+						<!-- td><g:formatBoolean boolean="${reasonInstance.needsVacDesc}" /></td -->
+						<!-- td><g:checkBox name="needsVacDesc" value="${reasonInstance.needsVacDesc}" disabled="true" /></td -->
+						<td><g:checkBox name="needsVacDesc" value="${reasonInstance.needsVacDesc}" onclick="return false" onkeydown="return false" /></td>
 					
 					</tr>
 				</g:each>

@@ -19,6 +19,6 @@ class Vacation {
 	Status status
 	
 	String toString() {
-		startdate.toString() + " - " + enddate.toString() + " " + reason.toString() + ": " + description
+		startdate.format('dd.MM.yyyy') + " - " + enddate.format('dd.MM.yyyy') + " " + reason.toString() + ": " + description
 	}
 }

@@ -32,7 +32,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
-	<!-- g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}" / -->
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'enddate', 'error')} required">
@@ -41,7 +40,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
-	<!-- g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}" / -->
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'status', 'error')} required">

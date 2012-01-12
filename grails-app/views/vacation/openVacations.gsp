@@ -11,7 +11,6 @@
 		<a href="#list-vacation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -24,17 +23,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="approved" title="${message(code: 'vacation.approved.label', default: 'Approved')}" />
-					
-						<g:sortableColumn property="description" title="${message(code: 'vacation.description.label', default: 'Description')}" />
-					
 						<th><g:message code="vacation.employee.label" default="Employee" /></th>
-					
-						<g:sortableColumn property="enddate" title="${message(code: 'vacation.enddate.label', default: 'Enddate')}" />
 					
 						<th><g:message code="vacation.reason.label" default="Reason" /></th>
 					
+						<g:sortableColumn property="description" title="${message(code: 'vacation.description.label', default: 'Description')}" />
+					
 						<g:sortableColumn property="startdate" title="${message(code: 'vacation.startdate.label', default: 'Startdate')}" />
+					
+						<g:sortableColumn property="enddate" title="${message(code: 'vacation.enddate.label', default: 'Enddate')}" />
+					
+						<g:sortableColumn property="status" title="${message(code: 'vacation.status.label', default: 'Status')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +41,17 @@
 				<g:each in="${vacationInstanceList}" status="i" var="vacationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${vacationInstance.id}">${fieldValue(bean: vacationInstance, field: "approved")}</g:link></td>
-					
-						<td>${fieldValue(bean: vacationInstance, field: "description")}</td>
-					
-						<td>${fieldValue(bean: vacationInstance, field: "employee")}</td>
-					
-						<td><g:formatDate date="${vacationInstance.enddate}" /></td>
+						<td><g:link action="edit" id="${vacationInstance.id}">${fieldValue(bean: vacationInstance, field: "employee")}</g:link></td>
 					
 						<td>${fieldValue(bean: vacationInstance, field: "reason")}</td>
 					
-						<td><g:formatDate date="${vacationInstance.startdate}" /></td>
+						<td>${fieldValue(bean: vacationInstance, field: "description")}</td>
+					
+						<td><g:formatDate date="${vacationInstance.startdate}" format="dd.MM.yyyy" /></td>
+						
+						<td><g:formatDate date="${vacationInstance.enddate}" format="dd.MM.yyyy" /></td>
+					
+						<td>${fieldValue(bean: vacationInstance, field: "status")}</td>
 					
 					</tr>
 				</g:each>

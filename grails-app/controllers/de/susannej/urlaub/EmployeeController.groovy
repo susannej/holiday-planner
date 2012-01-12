@@ -7,11 +7,10 @@ class EmployeeController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        //redirect(action: "list", params: params)
 		if (session.user.approve) {
 			redirect(controller: "vacation", action: "openVacations")
 		} else {
-			redirect(controller: "vacation", action: "singleOneMonth")
+			redirect(controller: "vacation", action: "singleList")
 		}
     }
 
@@ -131,4 +130,16 @@ class EmployeeController {
 		session.user = null
 		redirect(controller:"employee", action:"login")
 	}
+
+	def profile() {
+        def employeeInstance = Employee.get(session.user.id)
+        if (!employeeInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'employee.label', default: 'Employee'), params.id])
+            redirect(action: "list")
+            return
+        }
+
+        [employeeInstance: employeeInstance]
+    }
+
 }

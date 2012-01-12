@@ -11,7 +11,6 @@
 		<a href="#list-status" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -38,12 +37,12 @@
 				<g:each in="${statusInstanceList}" status="i" var="statusInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${statusInstance.id}">${fieldValue(bean: statusInstance, field: "orderId")}</g:link></td>
+						<td><g:link action="edit" id="${statusInstance.id}">${fieldValue(bean: statusInstance, field: "orderId")}</g:link></td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "description")}</td>
 					
 						<!-- td><g:formatBoolean boolean="${statusInstance.onlyApprover}" /></td -->
-						<td><g:checkBox name="myCheckbox" value="${statusInstance.onlyApprover}" disabled="true" /></td>
+						<td><g:checkBox name="myCheckbox" value="${statusInstance.onlyApprover}" onclick="return false" onkeydown="return false" /></td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "displayColor")}</td>
 					

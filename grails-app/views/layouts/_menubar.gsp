@@ -29,5 +29,8 @@
 				</ul></div>
 			</li>
 		</g:if>
+		
+		<li><a href="/urlaubsplaner/employee/profile" class="parent"><span>Mein Profil</span></a></li>
+		
 	</ul>
 </div>

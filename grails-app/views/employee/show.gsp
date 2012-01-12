@@ -11,7 +11,6 @@
 		<a href="#show-employee" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -36,7 +35,7 @@
 				<li class="fieldcontain">
 					<span id="employed-label" class="property-label"><g:message code="employee.employed.label" default="Employed" /></span>
 					
-						<span class="property-value" aria-labelledby="employed-label"><g:formatBoolean boolean="${employeeInstance?.employed}" /></span>
+						<span class="property-value" aria-labelledby="employed-label"><g:checkBox name="employed" value="${employeeInstance?.employed}" onclick="return false" onkeydown="return false" /></span>
 					
 				</li>
 				</g:if>
@@ -45,7 +44,7 @@
 				<li class="fieldcontain">
 					<span id="admin-label" class="property-label"><g:message code="employee.admin.label" default="Admin" /></span>
 					
-						<span class="property-value" aria-labelledby="admin-label"><g:formatBoolean boolean="${employeeInstance?.admin}" /></span>
+						<span class="property-value" aria-labelledby="admin-label"><g:checkBox name="admin" value="${employeeInstance?.admin}" onclick="return false" onkeydown="return false" /></span>
 					
 				</li>
 				</g:if>
@@ -54,7 +53,7 @@
 				<li class="fieldcontain">
 					<span id="approve-label" class="property-label"><g:message code="employee.approve.label" default="Approve" /></span>
 					
-						<span class="property-value" aria-labelledby="approve-label"><g:formatBoolean boolean="${employeeInstance?.approve}" /></span>
+						<span class="property-value" aria-labelledby="approve-label"><g:checkBox name="approve" value="${employeeInstance?.approve}" onclick="return false" onkeydown="return false" /></span>
 					
 				</li>
 				</g:if>

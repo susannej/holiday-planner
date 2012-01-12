@@ -8,7 +8,7 @@ class Reason {
     }
 	
 	String description
-	Boolean needs_vac_desc
+	Boolean needsVacDesc
 	
 	String toString() {
 		description

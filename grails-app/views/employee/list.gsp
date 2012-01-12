@@ -11,7 +11,6 @@
 		<a href="#list-employee" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -26,15 +25,15 @@
 					
 						<g:sortableColumn property="loginname" title="${message(code: 'employee.loginname.label', default: 'Loginname')}" />
 					
+						<g:sortableColumn property="lastname" title="${message(code: 'employee.lastname.label', default: 'Lastname')}" />
+					
+						<g:sortableColumn property="firstname" title="${message(code: 'employee.firstname.label', default: 'Firstname')}" />
+					
 						<g:sortableColumn property="employed" title="${message(code: 'employee.employed.label', default: 'Employed')}" />
 					
 						<g:sortableColumn property="admin" title="${message(code: 'employee.admin.label', default: 'Admin')}" />
 					
 						<g:sortableColumn property="approve" title="${message(code: 'employee.approve.label', default: 'Approve')}" />
-					
-						<g:sortableColumn property="firstname" title="${message(code: 'employee.firstname.label', default: 'Firstname')}" />
-					
-						<g:sortableColumn property="lastname" title="${message(code: 'employee.lastname.label', default: 'Lastname')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +41,17 @@
 				<g:each in="${employeeInstanceList}" status="i" var="employeeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${employeeInstance.id}">${fieldValue(bean: employeeInstance, field: "loginname")}</g:link></td>
+						<td><g:link action="edit" id="${employeeInstance.id}">${fieldValue(bean: employeeInstance, field: "loginname")}</g:link></td>
 					
-						<td><g:formatBoolean boolean="${employeeInstance.employed}" /></td>
-					
-						<td><g:formatBoolean boolean="${employeeInstance.admin}" /></td>
-					
-						<td><g:formatBoolean boolean="${employeeInstance.approve}" /></td>
+						<td>${fieldValue(bean: employeeInstance, field: "lastname")}</td>
 					
 						<td>${fieldValue(bean: employeeInstance, field: "firstname")}</td>
 					
-						<td>${fieldValue(bean: employeeInstance, field: "lastname")}</td>
+						<td><g:checkBox name="needsVacDesc" value="${employeeInstance.employed}" onclick="return false" onkeydown="return false" /></td>
+					
+						<td><g:checkBox name="needsVacDesc" value="${employeeInstance.admin}" onclick="return false" onkeydown="return false" /></td>
+					
+						<td><g:checkBox name="needsVacDesc" value="${employeeInstance.approve}" onclick="return false" onkeydown="return false" /></td>
 					
 					</tr>
 				</g:each>

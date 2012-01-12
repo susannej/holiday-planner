@@ -107,16 +107,8 @@ class VacationController {
     }
 	
 	def openVacations() {
-		// Die nachfolgenden 2 Zeilen sind nur vorübergehend!
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		[vacationInstanceList: Vacation.list(params), vacationInstanceTotal: Vacation.count()]
-
+		[vacationInstanceList: Vacation.findAllByStatus(Status.get(2)), vacationInstanceTotal: Vacation.count()]
 	}
 	
-	def singleOneMonth() {
-		// Die nachfolgenden 2 Zeilen sind nur vorübergehend!
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		[vacationInstanceList: Vacation.list(params), vacationInstanceTotal: Vacation.count()]
-
-	}
 }

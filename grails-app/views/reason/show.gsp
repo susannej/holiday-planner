@@ -11,7 +11,6 @@
 		<a href="#show-reason" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -32,11 +31,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${reasonInstance?.needs_vac_desc}">
+				<g:if test="${reasonInstance?.needsVacDesc}">
 				<li class="fieldcontain">
-					<span id="needs_vac_desc-label" class="property-label"><g:message code="reason.needs_vac_desc.label" default="Needsvacdesc" /></span>
+					<span id="needs_vac_desc-label" class="property-label"><g:message code="reason.needsVacDesc.label" default="Needsvacdesc" /></span>
 					
-						<span class="property-value" aria-labelledby="needs_vac_desc-label"><g:formatBoolean boolean="${reasonInstance?.needs_vac_desc}" /></span>
+						<span class="property-value" aria-labelledby="needsVacDesc-label"><g:checkBox name="needsVacDesc" value="${reasonInstance?.needsVacDesc}" onclick="return false" onkeydown="return false" /></span>
 					
 				</li>
 				</g:if>
