@@ -28,20 +28,20 @@
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'startdate', 'error')} required">
 	<label for="startdate">
-		<g:message code="vacation.startdate.label" default="Startdate (DD/MM/YYYY)" />
+		<g:message code="vacation.startdate.label" default="Startdate" />
 		<span class="required-indicator">*</span>
 	</label>
-	<!-- g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" / -->
-	<g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}" />
+	<g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
+	<!-- g:jqDatePicker name="startdate" value="${vacationInstance?.startdate}" / -->
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'enddate', 'error')} required">
 	<label for="enddate">
-		<g:message code="vacation.enddate.label" default="Enddate (DD/MM/YYYY)" />
+		<g:message code="vacation.enddate.label" default="Enddate" />
 		<span class="required-indicator">*</span>
 	</label>
-	<!-- g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" / -->
-	<g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}" />
+	<g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
+	<!-- g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}" / -->
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'status', 'error')} required">
