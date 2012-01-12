@@ -1,4 +1,6 @@
 import de.susannej.urlaub.Employee
+import de.susannej.urlaub.Reason
+import de.susannej.urlaub.Status
 
 class BootStrap {
 
@@ -17,7 +19,24 @@ class BootStrap {
                             firstname:"John", 
                             lastname:"Doe")
         jdoe.save()
-        
+		
+		def susannej = new Employee(loginname: "susannej",
+							password: "susannej",
+							firstname: "Susanne",
+							lastname: "Jaeckel",
+							admin: true,
+							approve: true)
+		susannej.save()
+		
+		(new Reason(description: "Urlaub", needsVacDesc: false)).save()
+		(new Reason(description: "Schulung", needsVacDesc: true)).save()
+		(new Reason(description: "Krank", needsVacDesc: false)).save()
+		
+		(new Status(orderId: 1, description: "gemerkt", onlyApprover: false, displayColor: "yellow")).save()
+		(new Status(orderId: 2, description: "beantragt", onlyApprover: false, displayColor: "grey")).save()
+		(new Status(orderId: 3, description: "genehmigt", onlyApprover: true, displayColor: "green")).save()
+		(new Status(orderId: 4, description: "abgelehnt", onlyApprover: true, displayColor: "red")).save()
+		
 	  }
     }
     }
