@@ -1,4 +1,3 @@
-
 class jqueryDatePickerTagLib {
 	
 	def jqDatePicker = {attrs, body ->
