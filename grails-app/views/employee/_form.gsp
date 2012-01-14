@@ -75,3 +75,10 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'startView', 'error')} ">
+	<label for="startView">
+		<g:message code="employee.startView.label" default="Start View" />
+		
+	</label>
+	<g:select name="startView" from="${['Month', 'List']}" value="${employeeInstance?.startView}" />
+</div>

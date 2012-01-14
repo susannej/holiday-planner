@@ -10,7 +10,7 @@ class EmployeeController {
 		if (session.user.approve) {
 			redirect(controller: "vacation", action: "openVacations")
 		} else {
-			redirect(controller: "vacation", action: "singleMonth")
+			redirect(controller: "vacation", action: "single" + session.user.startView)
 		}
     }
 
@@ -81,6 +81,11 @@ class EmployeeController {
             render(view: "edit", model: [employeeInstance: employeeInstance])
             return
         }
+
+		// if a user updates his profile, make sure, to have the cached userinfo updated, too.
+		if (employeeInstance.id == session.user.id) {
+			session.user = employeeInstance
+		} 
 
 		flash.message = message(code: 'default.updated.message', args: [message(code: 'employee.label', default: 'Employee'), employeeInstance.id])
         redirect(action: "show", id: employeeInstance.id)

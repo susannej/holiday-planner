@@ -35,6 +35,8 @@
 					
 						<g:sortableColumn property="approve" title="${message(code: 'employee.approve.label', default: 'Approve')}" />
 					
+						<g:sortableColumn property="startView" title="${message(code: 'employee.startView.label', default: 'StartView')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -52,6 +54,8 @@
 						<td><g:checkBox name="needsVacDesc" value="${employeeInstance.admin}" onclick="return false" onkeydown="return false" /></td>
 					
 						<td><g:checkBox name="needsVacDesc" value="${employeeInstance.approve}" onclick="return false" onkeydown="return false" /></td>
+					
+						<td>${fieldValue(bean: employeeInstance, field: "startView")}</td>
 					
 					</tr>
 				</g:each>

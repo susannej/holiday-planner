@@ -19,6 +19,7 @@ class Employee {
 	Boolean employed = true
 	Boolean admin = false
 	Boolean approve = false
+	String startView = "Month"
 	
 	String toString() {
 		lastname + ", " + firstname

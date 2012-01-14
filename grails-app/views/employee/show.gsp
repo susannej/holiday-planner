@@ -85,6 +85,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${employeeInstance?.startView}">
+				<li class="fieldcontain">
+					<span id="startView-label" class="property-label"><g:message code="employee.startView.label" default="Start View" /></span>
+					
+						<span class="property-value" aria-labelledby="startView-label"><g:fieldValue bean="${employeeInstance}" field="startView"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${employeeInstance?.vacations}">
 				<li class="fieldcontain">
 					<span id="vacations-label" class="property-label"><g:message code="employee.vacations.label" default="Vacations" /></span>
