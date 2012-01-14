@@ -30,7 +30,12 @@
 						center: 'title',
 						right: 'next nextYear'
 					},
-					editable: true
+					allDayDefault: true,
+					editable: true,
+					events: '/urlaubsplaner/vacation/ownEvents',
+					error: function() {
+						alert('Fehler bei der Verbindung zum Server!');
+					}
 				})
 			});
 		</script>

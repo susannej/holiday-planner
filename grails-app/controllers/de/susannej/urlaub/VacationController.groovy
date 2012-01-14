@@ -1,6 +1,7 @@
 package de.susannej.urlaub
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class VacationController {
 
@@ -111,12 +112,57 @@ class VacationController {
 		[vacationInstanceList: Vacation.findAllByStatus(Status.get(2)), vacationInstanceTotal: Vacation.count()]
 	}
 	
-	def singleMonth() {
-		
-	}
+	def singleMonth() {}
 	
-	def allMonth() {
+	def allMonth() {}
+	
+	def ownEvents() {
+		long start = Long.parseLong(params.start) * 1000
+		long end = Long.parseLong(params.end) * 1000
 		
+		log.error("in own Events / start = " + start)
+
+		def startdate = new Date(start)
+		def enddate = new Date(end)
+		
+		log.error("start = " + startdate.format("dd.MM.yyyy"))
+		log.error("end = " + enddate.format("dd.MM.yyyy"))
+		
+		def events = [
+			[
+				id: 1,
+				title: 'Schulung: Groovy und Grails',
+				start: '2012-01-01',
+				end: '2012-01-05',
+				url: '/urlaubsplaner/vacation/1'
+			],
+			[
+				id: 2,
+				title: 'Urlaub',
+				start: '2012-01-08',
+				end: '2012-01-10',
+				url: '/urlaubsplaner/vacation/2',
+				color: 'green'
+			],
+			[
+				id: 3,
+				title: 'Krank',
+				start: '2012-01-18',
+				end: '2012-01-27',
+				url: '/urlaubsplaner/vacation/3',
+				color: 'yellow',
+				textColor: 'black'
+			],
+			[
+				id: 4,
+				title: 'urlaub',
+				start: '2012-01-29',
+				end: '2012-02-03',
+				url: '/urlaubsplaner/vacation/4',
+				color: 'green'
+			]
+		]
+		render events as JSON
 	}
 	
 }
