@@ -10,7 +10,7 @@ class EmployeeController {
 		if (session.user.approve) {
 			redirect(controller: "vacation", action: "openVacations")
 		} else {
-			redirect(controller: "vacation", action: "singleList")
+			redirect(controller: "vacation", action: "singleMonth")
 		}
     }
 

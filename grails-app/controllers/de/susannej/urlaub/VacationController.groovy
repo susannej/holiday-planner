@@ -111,4 +111,12 @@ class VacationController {
 		[vacationInstanceList: Vacation.findAllByStatus(Status.get(2)), vacationInstanceTotal: Vacation.count()]
 	}
 	
+	def singleMonth() {
+		
+	}
+	
+	def allMonth() {
+		
+	}
+	
 }

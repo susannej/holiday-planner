@@ -4,19 +4,23 @@
 		
 		<li><a><span>Meine Urlaube</span></a>
 			<div><ul>
+				<li><a href="/urlaubsplaner/vacation/singleMonth"><span>Monats&uuml;bersicht</span></a></li>
 				<li><a href="/urlaubsplaner/vacation/singleList"><span>als Liste</span></a></li>
-				<li><a href="#"><span>Monats&uuml;bersicht</span></a></li>
+				<!-- 
 				<li><a href="#"><span>3-Monats &Uuml;bersicht</span></a></li>
 				<li><a href="#"><span>Jahres&uuml;bersicht</span></a></li>
+				-->
 			</ul></div>
 		</li>
 		
 		<li><a><span>Alle Mitarbeiter</span></a>
 			<div><ul>
+				<li><a href="/urlaubsplaner/vacation/allMonth"><span>Monats&uuml;bersicht</span></a></li>
 				<li><a href="/urlaubsplaner/vacation/list"><span>als Liste</span></a></li>
-				<li><a href="#"><span>Monats&uuml;bersicht</span></a></li>
+				<!-- 
 				<li><a href="#"><span>3-Monats &Uuml;bersicht</span></a></li>
 				<li><a href="#"><span>Jahres&uuml;bersicht</span></a></li>
+				-->
 			</ul></div>
 		</li>
 		

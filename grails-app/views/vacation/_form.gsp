@@ -7,7 +7,13 @@
 		<g:message code="vacation.employee.label" default="Employee" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="employee" name="employee.id" from="${de.susannej.urlaub.Employee.list()}" optionKey="id" required="" value="${vacationInstance?.employee?.id}" class="many-to-one"/>
+	<g:if test="${session.user.admin}">
+		<g:select id="employee" name="employee.id" from="${de.susannej.urlaub.Employee.list()}" optionKey="id" required="" value="${vacationInstance?.employee?.id}" class="many-to-one"/>
+	</g:if>
+	<g:else>
+		<label style="text-align: left">${session.user.firstname} ${session.user.lastname}</label>
+		<input type="hidden" name="employee.id" value="${session.user.id}">
+	</g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'reason', 'error')} required">
