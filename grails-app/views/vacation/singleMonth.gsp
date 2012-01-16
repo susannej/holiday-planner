@@ -12,6 +12,13 @@
 		
 	</head>
 	<body>
+		<a href="#list-vacation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div class="nav" role="navigation">
+			<ul>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+			</ul>
+		</div>
+
 		<div id="edit-vacation" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.xxx" default="eigene Urlaube" /></h1>
 		</div>
