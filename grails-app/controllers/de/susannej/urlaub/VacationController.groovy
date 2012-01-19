@@ -133,8 +133,11 @@ class VacationController {
 		def erg = Vacation.executeQuery("\
 			select v.id, e.lastname, e.firstname, r.description, v.description, v.startdate, v.enddate, s.displayColor \
 			  from Employee e, Reason r, Status s, Vacation v \
-			 where e = v.employee and r = v.reason and s = v.status and v.employee = :user",
-			 [user: session.user]
+			 where e = v.employee and r = v.reason and s = v.status and v.employee = :user \
+			   and (v.startdate between :startdate and :enddate \
+				    or v.enddate between :startdate and :enddate \
+				    or v.startdate < :startdate and v.enddate > :enddate)",
+			 [user: session.user, startdate: startdate, enddate: enddate]
 		)
 		log.error("Ergebnis = " + erg)
 		
