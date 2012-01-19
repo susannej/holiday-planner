@@ -120,13 +120,8 @@ class VacationController {
 		long start = Long.parseLong(params.start) * 1000
 		long end = Long.parseLong(params.end) * 1000
 		
-		log.error("in own Events / start = " + start)
-
 		def startdate = new Date(start)
 		def enddate = new Date(end)
-		
-		log.error("start = " + startdate.format("dd.MM.yyyy"))
-		log.error("end = " + enddate.format("dd.MM.yyyy"))
 		
 		ArrayList events = new ArrayList();
 
@@ -139,13 +134,13 @@ class VacationController {
 				    or v.startdate < :startdate and v.enddate > :enddate)",
 			 [user: session.user, startdate: startdate, enddate: enddate]
 		)
-		log.error("Ergebnis = " + erg)
 		
 		for (record in erg) {
+				def vacationTitle = record[3] + (record[4] ? ": " + record[4] : "")
 				events.add(
 					[
 						id: record[0],
-						title: record[3] + ": " + record[4],
+						title: vacationTitle,
 						start: record[5].format("yyyy-MM-dd"),
 						end: record[6].format("yyyy-MM-dd"),
 						url: "/urlaubsplaner/vacation/edit/" + record[0],
@@ -154,48 +149,6 @@ class VacationController {
 				)
 		}
 
-		/*
-		events.add(
-			[
-				id: 1,
-				title: 'Schulung: Groovy und Grails',
-				start: '2012-01-01',
-				end: '2012-01-05',
-				url: '/urlaubsplaner/vacation/1'
-			]
-		)
-		events.add(
-			[
-				id: 2,
-				title: 'Urlaub',
-				start: '2012-01-08',
-				end: '2012-01-10',
-				url: '/urlaubsplaner/vacation/2',
-				color: 'green'
-			]
-		)
-		events.add(
-			[
-				id: 3,
-				title: 'Krank',
-				start: '2012-01-18',
-				end: '2012-01-27',
-				url: '/urlaubsplaner/vacation/3',
-				color: 'yellow',
-				textColor: 'black'
-			]
-		)
-		events.add(
-			[
-				id: 4,
-				title: 'urlaub',
-				start: '2012-01-29',
-				end: '2012-02-03',
-				url: '/urlaubsplaner/vacation/4',
-				color: 'green'
-			]
-		)
-		*/
 		render events as JSON
 	}
 	
@@ -203,57 +156,35 @@ class VacationController {
 		long start = Long.parseLong(params.start) * 1000
 		long end = Long.parseLong(params.end) * 1000
 		
-		log.error("in own Events / start = " + start)
-
 		def startdate = new Date(start)
 		def enddate = new Date(end)
 		
-		log.error("start = " + startdate.format("dd.MM.yyyy"))
-		log.error("end = " + enddate.format("dd.MM.yyyy"))
-		
+		ArrayList events = new ArrayList();
+
 		def erg = Vacation.executeQuery("\
 			select v.id, e.lastname, e.firstname, r.description, v.description, v.startdate, v.enddate, s.displayColor \
 			  from Employee e, Reason r, Status s, Vacation v \
-			 where e = v.employee and r = v.reason and s = v.status and v.employee = :user", 
-			 [user: session.user]
+			 where e = v.employee and r = v.reason and s = v.status \
+			   and (v.startdate between :startdate and :enddate \
+				    or v.enddate between :startdate and :enddate \
+				    or v.startdate < :startdate and v.enddate > :enddate)",
+			 [startdate: startdate, enddate: enddate]
 		)
 		
-		log.error("Ergebnis = " + erg)
-		
-		def events = [
-			[
-				id: 1,
-				title: 'Schulung: Groovy und Grails',
-				start: '2012-01-01',
-				end: '2012-01-05',
-				url: '/urlaubsplaner/vacation/1'
-			],
-			[
-				id: 2,
-				title: 'Urlaub',
-				start: '2012-01-08',
-				end: '2012-01-10',
-				url: '/urlaubsplaner/vacation/2',
-				color: 'green'
-			],
-			[
-				id: 3,
-				title: 'Krank',
-				start: '2012-01-18',
-				end: '2012-01-27',
-				url: '/urlaubsplaner/vacation/3',
-				color: 'yellow',
-				textColor: 'black'
-			],
-			[
-				id: 4,
-				title: 'urlaub',
-				start: '2012-01-29',
-				end: '2012-02-03',
-				url: '/urlaubsplaner/vacation/4',
-				color: 'green'
-			]
-		]
+		for (record in erg) {
+				def vacationTitle = record[1] + (record[2] ? ", " + record[2] : "") + " - " + record[3] + (record[4] ? ": " + record[4] : "")
+				events.add(
+					[
+						id: record[0],
+						title: vacationTitle,
+						start: record[5].format("yyyy-MM-dd"),
+						end: record[6].format("yyyy-MM-dd"),
+						url: "/urlaubsplaner/vacation/edit/" + record[0],
+						color: record[7]
+					]
+				)
+		}
+
 		render events as JSON
 	}
 	

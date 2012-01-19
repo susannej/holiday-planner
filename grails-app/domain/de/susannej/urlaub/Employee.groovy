@@ -22,6 +22,6 @@ class Employee {
 	String startView = "Month"
 	
 	String toString() {
-		lastname + ", " + firstname
+		lastname + (firstname ? ", " + firstname : "")
 	}
 }

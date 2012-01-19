@@ -9,8 +9,7 @@ class BootStrap {
 			development {
 				def admin = new Employee(loginname:"admin", 
                              	password:"admin", 
-								 firstname:"Administrator", 
-								 lastname:"admin",
+								 lastname:"Administrator",
 								 admin: true)
 				admin.save()
 		
