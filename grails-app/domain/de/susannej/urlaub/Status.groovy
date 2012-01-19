@@ -9,12 +9,14 @@ class Status {
 		description()
 		onlyApprover()
 		displayColor()
+		textColor()
     }
 	
 	Integer orderId
 	String description
 	Boolean onlyApprover
 	String displayColor
+	String textColor
 	
 	String toString() {
 		description

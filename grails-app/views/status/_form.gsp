@@ -34,6 +34,14 @@
 	<g:textField name="displayColor" value="${statusInstance?.displayColor}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'textColor', 'error')} ">
+	<label for="textColor">
+		<g:message code="status.textColor.label" default="Text Color" />
+		
+	</label>
+	<g:textField name="textColor" value="${statusInstance?.textColor}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'vacations', 'error')} ">
 	<label for="vacations">
 		<g:message code="status.vacations.label" default="Vacations" />

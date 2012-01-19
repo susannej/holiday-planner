@@ -9,6 +9,7 @@ class BootStrap {
 			development {
 				def admin = new Employee(loginname:"admin", 
                              	password:"admin", 
+								 firstname: "",
 								 lastname:"Administrator",
 								 admin: true)
 				admin.save()
@@ -31,12 +32,12 @@ class BootStrap {
 				(new Reason(description: "Schulung", needsVacDesc: true)).save()	// blau
 				(new Reason(description: "Krank", needsVacDesc: false)).save()		// maroon
 		
-				(new Status(orderId: 1, description: "Schulung", onlyApprover: false, displayColor: "blue")).save()
-				(new Status(orderId: 1, description: "Krank", onlyApprover: false, displayColor: "maroon")).save()
-				(new Status(orderId: 1, description: "Urlaub: notiert", onlyApprover: false, displayColor: "yellow")).save()
-				(new Status(orderId: 2, description: "Urlaub: beantragt", onlyApprover: false, displayColor: "red")).save()
-				(new Status(orderId: 3, description: "Urlaub: genehmigt", onlyApprover: true, displayColor: "green")).save()
-				(new Status(orderId: 4, description: "Urlaub: abgelehnt", onlyApprover: true, displayColor: "black")).save()
+				(new Status(orderId: 1, description: "Schulung", onlyApprover: false, displayColor: "blue", textColor: "white")).save()
+				(new Status(orderId: 1, description: "Krank", onlyApprover: false, displayColor: "maroon", textColor: "white")).save()
+				(new Status(orderId: 1, description: "Urlaub: notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
+				(new Status(orderId: 2, description: "Urlaub: beantragt", onlyApprover: false, displayColor: "red", textColor: "white")).save()
+				(new Status(orderId: 3, description: "Urlaub: genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
+				(new Status(orderId: 4, description: "Urlaub: abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
 		
 			}
 		}

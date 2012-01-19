@@ -14,7 +14,7 @@ class Employee {
 	
 	String loginname
 	String password
-	String firstname
+	String firstname = null
 	String lastname
 	Boolean employed = true
 	Boolean admin = false
@@ -22,6 +22,6 @@ class Employee {
 	String startView = "Month"
 	
 	String toString() {
-		lastname + (firstname ? ", " + firstname : "")
+		lastname + (firstname != null && firstname.length() > 0 ? ", " + firstname : "")
 	}
 }

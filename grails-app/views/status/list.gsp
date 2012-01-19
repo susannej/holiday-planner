@@ -31,6 +31,8 @@
 					
 						<g:sortableColumn property="displayColor" title="${message(code: 'status.displayColor.label', default: 'Display Color')}" />
 					
+						<g:sortableColumn property="textColor" title="${message(code: 'status.textColor.label', default: 'Text Color')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -45,6 +47,8 @@
 						<td><g:checkBox name="myCheckbox" value="${statusInstance.onlyApprover}" onclick="return false" onkeydown="return false" /></td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "displayColor")}</td>
+					
+						<td>${fieldValue(bean: statusInstance, field: "textColor")}</td>
 					
 					</tr>
 				</g:each>

@@ -58,6 +58,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${statusInstance?.textColor}">
+				<li class="fieldcontain">
+					<span id="textColor-label" class="property-label"><g:message code="status.textColor.label" default="Text Color" /></span>
+					
+						<span class="property-value" aria-labelledby="textColor-label"><g:fieldValue bean="${statusInstance}" field="textColor"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${statusInstance?.vacations}">
 				<li class="fieldcontain">
 					<span id="vacations-label" class="property-label"><g:message code="status.vacations.label" default="Vacations" /></span>
