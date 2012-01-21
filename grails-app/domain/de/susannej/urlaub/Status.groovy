@@ -5,14 +5,16 @@ class Status {
 	static hasMany = [vacations: Vacation]
 
     static constraints = {
-		orderId()
+		reason()
+		sortOrder()
 		description()
 		onlyApprover()
 		displayColor()
 		textColor()
     }
 	
-	Integer orderId
+	Reason reason
+	Integer sortOrder
 	String description
 	Boolean onlyApprover
 	String displayColor

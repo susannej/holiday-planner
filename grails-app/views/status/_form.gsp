@@ -2,12 +2,20 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'orderId', 'error')} required">
-	<label for="orderId">
-		<g:message code="status.orderId.label" default="Order Id" />
+<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'reason', 'error')} required">
+	<label for="reason">
+		<g:message code="status.reason.label" default="Reason" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="number" name="orderId" required="" value="${fieldValue(bean: statusInstance, field: 'orderId')}"/>
+	<g:select id="reason" name="reason.id" from="${de.susannej.urlaub.Reason.list()}" optionKey="id" required="" value="${statusInstance?.reason?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'sortOrder', 'error')} required">
+	<label for="sortOrder">
+		<g:message code="status.sortOrder.label" default="Sort Order" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="number" name="sortOrder" required="" value="${fieldValue(bean: statusInstance, field: 'sortOrder')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'description', 'error')} ">

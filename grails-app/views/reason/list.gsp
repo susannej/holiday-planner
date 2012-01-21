@@ -25,7 +25,7 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'reason.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="needsVacDesc" title="${message(code: 'reason.needsVacDesc.label', default: 'Needsvacdesc')}" />
+						<g:sortableColumn property="needsVacDesc" title="${message(code: 'reason.needsVacDesc.label', default: 'Needs Vac Desc')}" />
 					
 					</tr>
 				</thead>
@@ -33,11 +33,9 @@
 				<g:each in="${reasonInstanceList}" status="i" var="reasonInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="edit" id="${reasonInstance.id}">${fieldValue(bean: reasonInstance, field: "description")}</g:link></td>
+						<td><g:link action="show" id="${reasonInstance.id}">${fieldValue(bean: reasonInstance, field: "description")}</g:link></td>
 					
-						<!-- td><g:formatBoolean boolean="${reasonInstance.needsVacDesc}" /></td -->
-						<!-- td><g:checkBox name="needsVacDesc" value="${reasonInstance.needsVacDesc}" disabled="true" /></td -->
-						<td><g:checkBox name="needsVacDesc" value="${reasonInstance.needsVacDesc}" onclick="return false" onkeydown="return false" /></td>
+						<td><g:checkBox name="needsVacDesc" value="${reasonInstance?.needsVacDesc}" onclick="return false" onkeydown="return false" /></td>
 					
 					</tr>
 				</g:each>

@@ -22,11 +22,20 @@
 			</g:if>
 			<ol class="property-list status">
 			
-				<g:if test="${statusInstance?.orderId}">
+				<g:if test="${statusInstance?.reason}">
 				<li class="fieldcontain">
-					<span id="orderId-label" class="property-label"><g:message code="status.orderId.label" default="Order Id" /></span>
+					<span id="reason-label" class="property-label"><g:message code="status.reason.label" default="Reason" /></span>
 					
-						<span class="property-value" aria-labelledby="orderId-label"><g:fieldValue bean="${statusInstance}" field="orderId"/></span>
+						<span class="property-value" aria-labelledby="reason-label"><g:link controller="reason" action="show" id="${statusInstance?.reason?.id}">${statusInstance?.reason?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${statusInstance?.sortOrder}">
+				<li class="fieldcontain">
+					<span id="sortOrder-label" class="property-label"><g:message code="status.sortOrder.label" default="Sort Order" /></span>
+					
+						<span class="property-value" aria-labelledby="sortOrder-label"><g:fieldValue bean="${statusInstance}" field="sortOrder"/></span>
 					
 				</li>
 				</g:if>

@@ -33,9 +33,20 @@
 			
 				<g:if test="${reasonInstance?.needsVacDesc}">
 				<li class="fieldcontain">
-					<span id="needs_vac_desc-label" class="property-label"><g:message code="reason.needsVacDesc.label" default="Needsvacdesc" /></span>
+					<span id="needsVacDesc-label" class="property-label"><g:message code="reason.needsVacDesc.label" default="Needs Vac Desc" /></span>
 					
 						<span class="property-value" aria-labelledby="needsVacDesc-label"><g:checkBox name="needsVacDesc" value="${reasonInstance?.needsVacDesc}" onclick="return false" onkeydown="return false" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${reasonInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="reason.status.label" default="Status" /></span>
+					
+						<g:each in="${reasonInstance.status}" var="s">
+						<span class="property-value" aria-labelledby="status-label"><g:link controller="status" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

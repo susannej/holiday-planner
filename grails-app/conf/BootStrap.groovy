@@ -28,16 +28,19 @@ class BootStrap {
 								approve: true)
 				susannej.save()
 		
-				(new Reason(description: "Urlaub", needsVacDesc: false)).save()
-				(new Reason(description: "Schulung", needsVacDesc: true)).save()	// blau
-				(new Reason(description: "Krank", needsVacDesc: false)).save()		// maroon
+				def urlaub = new Reason(description: "Urlaub", needsVacDesc: false)
+				urlaub.save()
+				def schulung = new Reason(description: "Schulung", needsVacDesc: true)
+				schulung.save()	// blau
+				def krank = new Reason(description: "Krank", needsVacDesc: false)
+				krank.save()		// maroon
 		
-				(new Status(orderId: 1, description: "Schulung", onlyApprover: false, displayColor: "blue", textColor: "white")).save()
-				(new Status(orderId: 1, description: "Krank", onlyApprover: false, displayColor: "maroon", textColor: "white")).save()
-				(new Status(orderId: 1, description: "Urlaub: notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
-				(new Status(orderId: 2, description: "Urlaub: beantragt", onlyApprover: false, displayColor: "red", textColor: "white")).save()
-				(new Status(orderId: 3, description: "Urlaub: genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
-				(new Status(orderId: 4, description: "Urlaub: abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
+				(new Status(reason: schulung, sortOrder: 1, description: "Schulung", onlyApprover: false, displayColor: "blue", textColor: "white")).save()
+				(new Status(reason: krank, sortOrder: 1, description: "Krank", onlyApprover: false, displayColor: "maroon", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 1, description: "Urlaub: notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
+				(new Status(reason: urlaub, sortOrder: 2, description: "Urlaub: beantragt", onlyApprover: false, displayColor: "red", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 3, description: "Urlaub: genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 4, description: "Urlaub: abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
 		
 			}
 		}

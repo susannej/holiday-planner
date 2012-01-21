@@ -23,7 +23,9 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="orderId" title="${message(code: 'status.orderId.label', default: 'Order Id')}" />
+						<th><g:message code="status.reason.label" default="Reason" /></th>
+					
+						<g:sortableColumn property="sortOrder" title="${message(code: 'status.sortOrder.label', default: 'Sort Order')}" />
 					
 						<g:sortableColumn property="description" title="${message(code: 'status.description.label', default: 'Description')}" />
 					
@@ -39,12 +41,13 @@
 				<g:each in="${statusInstanceList}" status="i" var="statusInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="edit" id="${statusInstance.id}">${fieldValue(bean: statusInstance, field: "orderId")}</g:link></td>
+						<td><g:link action="show" id="${statusInstance.id}">${fieldValue(bean: statusInstance, field: "reason")}</g:link></td>
+					
+						<td>${fieldValue(bean: statusInstance, field: "sortOrder")}</td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "description")}</td>
 					
-						<!-- td><g:formatBoolean boolean="${statusInstance.onlyApprover}" /></td -->
-						<td><g:checkBox name="myCheckbox" value="${statusInstance.onlyApprover}" onclick="return false" onkeydown="return false" /></td>
+						<td><g:checkBox name="onlyApprover" value="${statusInstance?.onlyApprover}" onclick="return false" onkeydown="return false" /></td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "displayColor")}</td>
 					

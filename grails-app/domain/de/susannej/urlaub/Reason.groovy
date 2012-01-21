@@ -2,7 +2,7 @@ package de.susannej.urlaub
 
 class Reason {
 	
-	static hasMany = [vacations:Vacation]
+	static hasMany = [vacations:Vacation, status: Status]
 
     static constraints = {
     }

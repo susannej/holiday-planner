@@ -37,6 +37,7 @@
 						center: 'title',
 						right: 'next nextYear'
 					},
+					firstDay: 1,
 					allDayDefault: true,
 					editable: true,
 					events: '/urlaubsplaner/vacation/ownEvents',
