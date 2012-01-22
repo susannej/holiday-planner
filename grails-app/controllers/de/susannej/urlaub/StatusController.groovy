@@ -1,6 +1,7 @@
 package de.susannej.urlaub
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class StatusController {
 
@@ -100,4 +101,37 @@ class StatusController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def statusForReasonAsJson() {
+		def reasonId = params.reasonId
+		def reason = Reason.get(reasonId)
+		
+		def erg
+		if (session.user.approve) {
+			erg = Status.executeQuery("\
+				select s.id, s.description \
+				  from Status s \
+				 where s.reason = :reason \
+				 order by s.sortOrder",
+				[reason: reason]
+			)
+		} else {
+			erg = Status.executeQuery("\
+				select s.id, s.description \
+				  from Status s \
+				 where s.reason = :reason \
+				   and onlyApprover = false \
+				 order by s.sortOrder",
+				[reason: reason]
+			)
+		}
+		
+		def status = [:]
+		
+		for (record in erg) {
+			status[record[0]] = record[1]
+		}
+		
+		render status as JSON
+	}
 }

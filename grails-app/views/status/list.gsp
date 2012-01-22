@@ -31,9 +31,9 @@
 					
 						<g:sortableColumn property="onlyApprover" title="${message(code: 'status.onlyApprover.label', default: 'Only Approver')}" />
 					
-						<g:sortableColumn property="displayColor" title="${message(code: 'status.displayColor.label', default: 'Display Color')}" />
+						<g:sortableColumn property="toApprove" title="${message(code: 'status.toApprove.label', default: 'To Approve')}" />
 					
-						<g:sortableColumn property="textColor" title="${message(code: 'status.textColor.label', default: 'Text Color')}" />
+						<g:sortableColumn property="displayColor" title="${message(code: 'status.displayColor.label', default: 'Display Color')}" />
 					
 					</tr>
 				</thead>
@@ -47,11 +47,11 @@
 					
 						<td>${fieldValue(bean: statusInstance, field: "description")}</td>
 					
-						<td><g:checkBox name="onlyApprover" value="${statusInstance?.onlyApprover}" onclick="return false" onkeydown="return false" /></td>
+						<td><g:checkBox name="onlyApprover" value="${statusInstance.onlyApprover}" onclick="return false" onkeydown="return false" /></td>
+					
+						<td><g:checkBox name="toApprove" value="${statusInstance.toApprove}" onclick="return false" onkeydown="return false" /></td>
 					
 						<td>${fieldValue(bean: statusInstance, field: "displayColor")}</td>
-					
-						<td>${fieldValue(bean: statusInstance, field: "textColor")}</td>
 					
 					</tr>
 				</g:each>

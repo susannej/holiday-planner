@@ -53,7 +53,16 @@
 				<li class="fieldcontain">
 					<span id="onlyApprover-label" class="property-label"><g:message code="status.onlyApprover.label" default="Only Approver" /></span>
 					
-						<span class="property-value" aria-labelledby="onlyApprover-label"><g:checkBox name="onlyApprover" value="${statusInstance?.onlyApprover}" onclick="return false" onkeydown="return false" /></span>
+						<span class="property-value" aria-labelledby="onlyApprover-label"><g:checkBox name="onlyApprover" value="${statusInstance.onlyApprover}" onclick="return false" onkeydown="return false" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${statusInstance?.toApprove}">
+				<li class="fieldcontain">
+					<span id="toApprove-label" class="property-label"><g:message code="status.toApprove.label" default="To Approve" /></span>
+					
+						<span class="property-value" aria-labelledby="toApprove-label"><g:checkBox name="toApprove" value="${statusInstance.toApprove}" onclick="return false" onkeydown="return false" /></span>
 					
 				</li>
 				</g:if>

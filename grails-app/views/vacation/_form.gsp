@@ -1,6 +1,32 @@
 <%@ page import="de.susannej.urlaub.Vacation" %>
 
 
+		<!-- FIXME !!!
+			While editing a vacation, the actual status should be preselected!!!
+		-->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#reason").change(function() {
+					$("#status").hide();
+					$("#status").html("");
+					var value = $("#reason").val();
+					$.getJSON('/urlaubsplaner/status/statusForReasonAsJson',
+						{
+							reasonId: value
+						},
+						function(data) {
+							$.each(data, function(key, value) {
+								$("<option value='" + key + "'>" + value + "</option>").appendTo("#status");
+							});
+						}
+					);
+					$("#status").val(0);
+					$("#status").show();
+				});
+				$("#reason").val(0);
+				$("#reason").change();
+			});
+		</script>
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'employee', 'error')} required">
 	<label for="employee">

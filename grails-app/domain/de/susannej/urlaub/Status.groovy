@@ -9,6 +9,7 @@ class Status {
 		sortOrder()
 		description()
 		onlyApprover()
+		toApprove()
 		displayColor()
 		textColor()
     }
@@ -17,6 +18,7 @@ class Status {
 	Integer sortOrder
 	String description
 	Boolean onlyApprover
+	Boolean toApprove = false
 	String displayColor
 	String textColor
 	

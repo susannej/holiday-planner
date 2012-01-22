@@ -109,14 +109,15 @@ class VacationController {
 	
 	def openVacations() {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		[vacationInstanceList: Vacation.findAllByStatus(Status.get(2)), vacationInstanceTotal: Vacation.count()]
+		//[vacationInstanceList: Vacation.findAllByStatus(Status.get(2)), vacationInstanceTotal: Vacation.count()]
+		[vacationInstanceList: Vacation.findAllByStatusInList(Status.findAllByToApprove(true)), vacationInstanceTotal: Vacation.count()]
 	}
 	
 	def singleMonth() {}
 	
 	def allMonth() {}
 	
-	def ownEvents() {
+	def ownEventsAsJson() {
 		long start = Long.parseLong(params.start) * 1000
 		long end = Long.parseLong(params.end) * 1000
 		
@@ -126,7 +127,7 @@ class VacationController {
 		ArrayList events = new ArrayList();
 
 		def erg = Vacation.executeQuery("\
-			select v.id, e.lastname, e.firstname, r.description, v.description, v.startdate, v.enddate, s.displayColor \
+			select v.id, e.lastname, e.firstname, r.description, v.description, v.startdate, v.enddate, s.displayColor, s.textColor \
 			  from Employee e, Reason r, Status s, Vacation v \
 			 where e = v.employee and r = v.reason and s = v.status and v.employee = :user \
 			   and (v.startdate between :startdate and :enddate \
@@ -144,7 +145,8 @@ class VacationController {
 						start: record[5].format("yyyy-MM-dd"),
 						end: record[6].format("yyyy-MM-dd"),
 						url: "/urlaubsplaner/vacation/edit/" + record[0],
-						color: record[7]
+						color: record[7],
+						textColor: record[8]
 					]
 				)
 		}
@@ -152,7 +154,7 @@ class VacationController {
 		render events as JSON
 	}
 	
-	def allEvents() {
+	def allEventsAsJson() {
 		long start = Long.parseLong(params.start) * 1000
 		long end = Long.parseLong(params.end) * 1000
 		
@@ -162,7 +164,7 @@ class VacationController {
 		ArrayList events = new ArrayList();
 
 		def erg = Vacation.executeQuery("\
-			select v.id, e.lastname, e.firstname, r.description, v.description, v.startdate, v.enddate, s.displayColor \
+			select v.id, e.lastname, e.firstname, r.description, v.description, v.startdate, v.enddate, s.displayColor, s.textColor \
 			  from Employee e, Reason r, Status s, Vacation v \
 			 where e = v.employee and r = v.reason and s = v.status \
 			   and (v.startdate between :startdate and :enddate \
@@ -180,7 +182,8 @@ class VacationController {
 						start: record[5].format("yyyy-MM-dd"),
 						end: record[6].format("yyyy-MM-dd"),
 						url: "/urlaubsplaner/vacation/edit/" + record[0],
-						color: record[7]
+						color: record[7],
+						textColor: record[8]
 					]
 				)
 		}

@@ -37,10 +37,10 @@ class BootStrap {
 		
 				(new Status(reason: schulung, sortOrder: 1, description: "Schulung", onlyApprover: false, displayColor: "blue", textColor: "white")).save()
 				(new Status(reason: krank, sortOrder: 1, description: "Krank", onlyApprover: false, displayColor: "maroon", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 1, description: "Urlaub: notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
-				(new Status(reason: urlaub, sortOrder: 2, description: "Urlaub: beantragt", onlyApprover: false, displayColor: "red", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 3, description: "Urlaub: genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 4, description: "Urlaub: abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 1, description: "notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
+				(new Status(reason: urlaub, sortOrder: 2, description: "beantragt", onlyApprover: false, toApprove: true, displayColor: "red", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 3, description: "genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 4, description: "abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
 		
 			}
 		}

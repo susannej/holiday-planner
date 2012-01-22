@@ -34,6 +34,14 @@
 	<g:checkBox name="onlyApprover" value="${statusInstance?.onlyApprover}" />
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'toApprove', 'error')} ">
+	<label for="toApprove">
+		<g:message code="status.toApprove.label" default="To Approve" />
+		
+	</label>
+	<g:checkBox name="toApprove" value="${statusInstance?.toApprove}" />
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'displayColor', 'error')} ">
 	<label for="displayColor">
 		<g:message code="status.displayColor.label" default="Display Color" />
