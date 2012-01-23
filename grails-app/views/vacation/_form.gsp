@@ -1,29 +1,28 @@
 <%@ page import="de.susannej.urlaub.Vacation" %>
 
-
-		<!-- FIXME !!!
-			While editing a vacation, the actual status should be preselected!!!
-		-->
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#reason").change(function() {
 					$("#status").hide();
 					$("#status").html("");
 					var value = $("#reason").val();
+					var statusOrg = $("#status_org").val();
 					$.getJSON('/urlaubsplaner/status/statusForReasonAsJson',
 						{
 							reasonId: value
 						},
 						function(data) {
 							$.each(data, function(key, value) {
-								$("<option value='" + key + "'>" + value + "</option>").appendTo("#status");
+								if (key == statusOrg) {
+									$("<option value='" + key + "' selected='selected'>" + value + "</option>").appendTo("#status");
+								} else {
+									$("<option value='" + key + "'>" + value + "</option>").appendTo("#status");
+								}
 							});
 						}
 					);
-					$("#status").val(0);
 					$("#status").show();
 				});
-				$("#reason").val(0);
 				$("#reason").change();
 			});
 		</script>
@@ -73,6 +72,9 @@
 	</label>
 	<g:jqDatePicker name="enddate" value="${vacationInstance?.enddate}"	displayFormat="dd.MM.yyyy" datepickerFormat="dd.mm.yy" />
 </div>
+
+<!-- to reduce server communication, save the original status-id in this field for the javascript -->
+<input type="hidden" id="status_org" value="${vacationInstance?.status?.id}" />
 
 <div class="fieldcontain ${hasErrors(bean: vacationInstance, field: 'status', 'error')} required">
 	<label for="status">
