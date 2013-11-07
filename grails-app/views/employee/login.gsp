@@ -19,14 +19,14 @@
 						<label for="loginname">
 							<g:message code="employee.login.label" default="Login" />
 						</label>
-						<g:textField name="login" value=""/>
+						<g:field type="text" name="login" placeholder="Username" value=""/>
 					</div>
 					
 					<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'password', 'error')} ">
 						<label for="password">
 							<g:message code="employee.password.label" default="Password" />
 						</label>
-						<g:passwordField name="password" value=""/>
+						<g:field type="password" name="password" placeholder="Password" value=""/>
 					</div>
 
 				</fieldset>
