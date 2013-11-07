@@ -11,13 +11,15 @@ class BootStrap {
                              	password:"admin", 
 								 firstname: "",
 								 lastname:"Administrator",
-								 admin: true)
+								 admin: true,
+								 email: "administration@lucke-edv.de")
 				admin.save()
 		
 				def jdoe = new Employee(loginname:"jdoe", 
                             	password:"jdoe", 
 								firstname:"John", 
-								lastname:"Doe")
+								lastname:"Doe",
+								email: "john.doe@example.com")
 				jdoe.save()
 		
 				def susannej = new Employee(loginname: "susannej",
@@ -25,7 +27,8 @@ class BootStrap {
 								firstname: "Susanne",
 								lastname: "Jaeckel",
 								admin: true,
-								approve: true)
+								approve: true,
+								email: "susanne.jaeckel@lucke-edv.de")
 				susannej.save()
 		
 				def urlaub = new Reason(description: "Urlaub", needsVacDesc: false)

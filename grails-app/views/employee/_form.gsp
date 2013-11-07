@@ -58,6 +58,23 @@
 	<g:textField name="password" value="${employeeInstance?.password}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'supervisor', 'error')} ">
+	<label for="supervisor">
+		<g:message code="employee.supervisor.label" default="Supervisor" />
+		
+	</label>
+	<!-- g:select name="supervisor" from="${de.susannej.urlaub.Employee.list()}" value="${employeeInstance?.supervisor?.id}" optionKey="id" / -->
+	<g:select id="supervisor" name="supervisor.id" from="${de.susannej.urlaub.Employee.list()}" optionKey="id" value="${employeeInstance?.supervisor?.id}" class="many-to-one" noSelection="['null': '']"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'email', 'error')} ">
+	<label for="email">
+		<g:message code="employee.email.label" default="Email" />
+		
+	</label>
+	<g:field type="email" placeholder="name@example.com" name="email" value="${employeeInstance?.email}" size="40"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'startView', 'error')} ">
 	<label for="startView">
 		<g:message code="employee.startView.label" default="Start View" />
