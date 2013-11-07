@@ -25,8 +25,11 @@ environments {
     }
     production {
         dataSource {
+			driverClassName = "com.mysql.jdbc.Driver"
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE"
+            url = "jdbc:mysql://localhost/xyz"
+			username = "xyz"
+			password = "xyz"
             pooled = true
             properties {
                maxActive = -1

@@ -25,7 +25,7 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner">
-			<a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
+			<a href="http://www.lucke-edv.de"><img src="${resource(dir: 'images', file: 'urlaubsplaner-logo.png')}" alt="Lucke EDV GmbH"/></a>
 			<g:if test="${session.user}">
 				<div id="loginHeader">Hallo ${session.user.firstname} ${session.user.lastname} <g:link controller="employee" action="logout">[Logout]</g:link></div>
 			</g:if>
