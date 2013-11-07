@@ -34,7 +34,7 @@
 					firstDay: 1,
 					allDayDefault: true,
 					editable: false,
-					events: '/urlaubsplaner/vacation/allEventsAsJson',
+					events: '/holiday-planner/vacation/allEventsAsJson',
 					error: function() {
 						alert('Fehler bei der Verbindung zum Server!');
 					}

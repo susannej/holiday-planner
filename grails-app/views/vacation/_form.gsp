@@ -7,7 +7,7 @@
 					$("#status").html("");
 					var value = $("#reason").val();
 					var statusOrg = $("#status_org").val();
-					$.getJSON('/urlaubsplaner/status/statusForReasonAsJson',
+					$.getJSON('/holiday-planner/status/statusForReasonAsJson',
 						{
 							reasonId: value
 						},
