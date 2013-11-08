@@ -102,3 +102,12 @@ log4j = {
 	
 	
 }
+
+grails {
+	mail {
+		host = "mail.example.org"
+		port = 25
+		username = "john.doe@example.org"
+		password = "1234"
+	}
+}
