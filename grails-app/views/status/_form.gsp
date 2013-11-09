@@ -42,6 +42,22 @@
 	<g:checkBox name="toApprove" value="${statusInstance?.toApprove}" />
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'mailSupervisor', 'error')} ">
+	<label for="mailSupervisor">
+		<g:message code="status.mailSupervisor.label" default="Mail Supervisor" />
+		
+	</label>
+	<g:checkBox name="mailSupervisor" value="${statusInstance?.mailSupervisor}" />
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'mailEmployee', 'error')} ">
+	<label for="mailEmployee">
+		<g:message code="status.mailEmployee.label" default="Mail Employee" />
+		
+	</label>
+	<g:checkBox name="mailEmployee" value="${statusInstance?.mailEmployee}" />
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: statusInstance, field: 'displayColor', 'error')} ">
 	<label for="displayColor">
 		<g:message code="status.displayColor.label" default="Display Color" />

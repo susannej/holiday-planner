@@ -32,6 +32,8 @@ class VacationController {
             return
         }
 
+		mailing(vacationInstance)
+
 		flash.message = message(code: 'default.created.message', args: [message(code: 'vacation.label', default: 'Vacation'), vacationInstance.id])
         redirect(action: "show", id: vacationInstance.id)
     }
@@ -83,6 +85,8 @@ class VacationController {
             render(view: "edit", model: [vacationInstance: vacationInstance])
             return
         }
+		
+		mailing(vacationInstance)
 
 		flash.message = message(code: 'default.updated.message', args: [message(code: 'vacation.label', default: 'Vacation'), vacationInstance.id])
         redirect(action: "show", id: vacationInstance.id)
@@ -144,7 +148,7 @@ class VacationController {
 						title: vacationTitle,
 						start: record[5].format("yyyy-MM-dd"),
 						end: record[6].format("yyyy-MM-dd"),
-						url: "/urlaubsplaner/vacation/edit/" + record[0],
+						url: "/holiday-planner/vacation/edit/" + record[0],
 						color: record[7],
 						textColor: record[8]
 					]
@@ -181,7 +185,7 @@ class VacationController {
 						title: vacationTitle,
 						start: record[5].format("yyyy-MM-dd"),
 						end: record[6].format("yyyy-MM-dd"),
-						url: "/urlaubsplaner/vacation/edit/" + record[0],
+						url: "/holiday-planner/vacation/edit/" + record[0],
 						color: record[7],
 						textColor: record[8]
 					]
@@ -189,6 +193,25 @@ class VacationController {
 		}
 
 		render events as JSON
+	}
+	
+	def mailing(Vacation vacation) {
+		if (vacation.status.mailSupervisor) {
+			sendMail {
+				to vacation.employee.supervisor.email
+				from "administration@lucke-edv.de"
+				subject vacation.employee.toString() + " hat einen Urlaub " + vacation.status.description
+				body vacation.employee.toString() + " hat einen Urlaub von " + vacation.startdate.format("dd.MM.yyyy") + " bis " + vacation.enddate.format("dd.MM.yyyy") + " " + vacation.status.description
+			}
+		}
+		if (vacation.status.mailEmployee) {
+			sendMail {
+				to vacation.employee.email
+				from "administration@lucke-edv.de"
+				subject vacation.employee.supervisor.toString() + " hat ihren Urlaub " + vacation.status.description
+				body vacation.employee.supervisor.toString() + " hat ihren Urlaub von " + vacation.startdate.format("dd.MM.yyyy") + " bis " + vacation.enddate.format("dd.MM.yyyy") + " " + vacation.status.description
+			}
+		}
 	}
 	
 }

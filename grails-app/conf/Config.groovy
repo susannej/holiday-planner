@@ -63,10 +63,28 @@ grails.hibernate.cache.queries = true
 environments {
     development {
         grails.logging.jul.usebridge = true
+
+		grails {
+			mail {
+				host = "mail.example.com"
+				port = 25
+				username = "john.doe"
+				password = "mySecretPassword"
+			}
+		}
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
+
+		grails {
+			mail {
+				host = "mail.example.com"
+				port = 25
+				username = "john.doe"
+				password = "mySecretPassword"
+			}
+		}
     }
 }
 
@@ -103,11 +121,3 @@ log4j = {
 	
 }
 
-grails {
-	mail {
-		host = "mail.example.org"
-		port = 25
-		username = "john.doe@example.org"
-		password = "1234"
-	}
-}

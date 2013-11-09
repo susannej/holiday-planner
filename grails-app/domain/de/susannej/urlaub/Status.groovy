@@ -10,6 +10,8 @@ class Status {
 		description()
 		onlyApprover()
 		toApprove()
+		mailSupervisor()
+		mailEmployee()
 		displayColor()
 		textColor()
     }
@@ -19,6 +21,8 @@ class Status {
 	String description
 	Boolean onlyApprover
 	Boolean toApprove = false
+	Boolean mailSupervisor = false
+	Boolean mailEmployee = false
 	String displayColor
 	String textColor
 	

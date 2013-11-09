@@ -11,15 +11,13 @@ class BootStrap {
                              	password:"admin", 
 								 firstname: "",
 								 lastname:"Administrator",
-								 admin: true,
-								 email: "administration@lucke-edv.de")
+								 admin: true)
 				admin.save()
 		
 				def jdoe = new Employee(loginname:"jdoe", 
                             	password:"jdoe", 
 								firstname:"John", 
-								lastname:"Doe",
-								email: "john.doe@example.com")
+								lastname:"Doe")
 				jdoe.save()
 		
 				def susannej = new Employee(loginname: "susannej",
@@ -27,8 +25,7 @@ class BootStrap {
 								firstname: "Susanne",
 								lastname: "Jaeckel",
 								admin: true,
-								approve: true,
-								email: "susanne.jaeckel@lucke-edv.de")
+								approve: true)
 				susannej.save()
 		
 				def urlaub = new Reason(description: "Urlaub", needsVacDesc: false)
@@ -41,35 +38,13 @@ class BootStrap {
 				(new Status(reason: schulung, sortOrder: 1, description: "Schulung", onlyApprover: false, displayColor: "blue", textColor: "white")).save()
 				(new Status(reason: krank, sortOrder: 1, description: "Krank", onlyApprover: false, displayColor: "maroon", textColor: "white")).save()
 				(new Status(reason: urlaub, sortOrder: 1, description: "notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
-				(new Status(reason: urlaub, sortOrder: 2, description: "beantragt", onlyApprover: false, toApprove: true, displayColor: "red", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 3, description: "genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 4, description: "abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 2, description: "beantragt", onlyApprover: false, toApprove: true, mailSupervisor: true, displayColor: "red", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 3, description: "genehmigt", onlyApprover: true, mailEmployee: true, displayColor: "green", textColor: "white")).save()
+				(new Status(reason: urlaub, sortOrder: 4, description: "abgelehnt", onlyApprover: true, mailEmployee: true, displayColor: "black", textColor: "white")).save()
 		
 			}
 			
 			production {
-				/*
-				def admin = new Employee(loginname:"admin", 
-                             	password:"admin", 
-								 firstname: "",
-								 lastname:"Administrator",
-								 admin: true)
-				admin.save()
-		
-				def urlaub = new Reason(description: "Urlaub", needsVacDesc: false)
-				urlaub.save()
-				def schulung = new Reason(description: "Schulung", needsVacDesc: true)
-				schulung.save()	// blau
-				def krank = new Reason(description: "Krank", needsVacDesc: false)
-				krank.save()		// maroon
-		
-				(new Status(reason: schulung, sortOrder: 1, description: "Schulung", onlyApprover: false, displayColor: "blue", textColor: "white")).save()
-				(new Status(reason: krank, sortOrder: 1, description: "Krank", onlyApprover: false, displayColor: "maroon", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 1, description: "notiert", onlyApprover: false, displayColor: "yellow", textColor: "black")).save()
-				(new Status(reason: urlaub, sortOrder: 2, description: "beantragt", onlyApprover: false, toApprove: true, displayColor: "red", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 3, description: "genehmigt", onlyApprover: true, displayColor: "green", textColor: "white")).save()
-				(new Status(reason: urlaub, sortOrder: 4, description: "abgelehnt", onlyApprover: true, displayColor: "black", textColor: "white")).save()
-				*/
 			}
 		}
     }

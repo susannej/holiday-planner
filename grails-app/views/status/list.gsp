@@ -33,7 +33,11 @@
 					
 						<g:sortableColumn property="toApprove" title="${message(code: 'status.toApprove.label', default: 'To Approve')}" />
 					
-						<g:sortableColumn property="displayColor" title="${message(code: 'status.displayColor.label', default: 'Display Color')}" />
+						<g:sortableColumn property="mailSupervisor" title="${message(code: 'status.mailSupervisor.label', default: 'Mail Supervisor')}" />
+					
+						<g:sortableColumn property="mailEmployee" title="${message(code: 'status.mailEmployee.label', default: 'Mail Employee')}" />
+					
+						<!-- g:sortableColumn property="displayColor" title="${message(code: 'status.displayColor.label', default: 'Display Color')}" / -->
 					
 					</tr>
 				</thead>
@@ -51,7 +55,11 @@
 					
 						<td><g:checkBox name="toApprove" value="${statusInstance.toApprove}" onclick="return false" onkeydown="return false" /></td>
 					
-						<td>${fieldValue(bean: statusInstance, field: "displayColor")}</td>
+						<td><g:checkBox name="mailSupervisor" value="${statusInstance.mailSupervisor}" onclick="return false" onkeydown="return false" /></td>
+					
+						<td><g:checkBox name="mailEmployee" value="${statusInstance.mailEmployee}" onclick="return false" onkeydown="return false" /></td>
+					
+						<!-- td>${fieldValue(bean: statusInstance, field: "displayColor")}</td -->
 					
 					</tr>
 				</g:each>

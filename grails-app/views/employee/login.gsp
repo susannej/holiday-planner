@@ -19,7 +19,7 @@
 						<label for="loginname">
 							<g:message code="employee.login.label" default="Login" />
 						</label>
-						<g:field type="text" name="login" placeholder="Username" value=""/>
+						<g:field type="text" name="login" placeholder="Username" value="" autofocus="true"/>
 					</div>
 					
 					<div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'password', 'error')} ">
